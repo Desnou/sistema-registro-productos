@@ -15,7 +15,7 @@ TECNOLOGÍAS
 
 VERSIONES UTILIZADAS
 --------------------
-- PHP: [COMPLETAR: versión usada, por ejemplo 8.3.x]
+- PHP: 8.3
 - PostgreSQL: 18.2
 
 REQUISITOS PREVIOS
