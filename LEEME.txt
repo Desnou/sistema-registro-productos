@@ -1,0 +1,63 @@
+SISTEMA DE REGISTRO DE PRODUCTOS
+================================
+
+DESCRIPCIÓN
+-----------
+Sistema de registro de productos con formulario validado en JavaScript,
+cargas dinámicas desde base de datos y guardado mediante AJAX + PHP.
+
+TECNOLOGÍAS
+-----------
+- HTML / CSS / JavaScript nativos (sin frameworks).
+- PHP nativo (sin frameworks).
+- AJAX mediante fetch().
+- PostgreSQL.
+
+VERSIONES UTILIZADAS
+--------------------
+- PHP: [COMPLETAR: versión usada, por ejemplo 8.3.x]
+- PostgreSQL: 18.2
+
+REQUISITOS PREVIOS
+------------------
+- Tener instalado PHP con la extensión pdo_pgsql habilitada.
+- Tener instalado PostgreSQL 18 (o compatible) con el servicio en ejecución.
+
+PASOS DE INSTALACIÓN
+--------------------
+1. Crear la base de datos (desde una terminal con psql):
+
+   psql -U postgres -c "CREATE DATABASE registro_productos;"
+
+2. Importar el esquema y los datos iniciales, en este orden:
+
+   psql -U postgres -d registro_productos -f sql/01_esquema.sql
+   psql -U postgres -d registro_productos -f sql/02_datos_prueba.sql
+
+3. Configurar las credenciales de conexión en el archivo:
+
+   php/conexion.php
+
+   (usuario y contraseña de PostgreSQL; por defecto se usa el usuario "postgres").
+
+4. Levantar el servidor de desarrollo desde la raíz del proyecto:
+
+   php -S localhost:8000
+
+5. Abrir en el navegador:
+
+   http://localhost:8000/index.php
+
+ESTRUCTURA DEL PROYECTO
+-----------------------
+index.php              Interfaz del formulario.
+css/estilos.css        Estilos.
+js/                    Validaciones, cargas dinámicas y envío AJAX.
+php/                   Conexión a base de datos y endpoints del servidor.
+sql/                   Esquema y datos iniciales de la base de datos.
+docs/                  Documentación de referencia.
+
+NOTAS
+-----
+- El archivo php/config.local.php (si se crea) se ignora en git y permite
+  configurar credenciales sin exponerlas en el repositorio.

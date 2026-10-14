@@ -1,0 +1,14 @@
+# Configuración local con credenciales (no versionar)
+php/config.local.php
+
+# Dumps y respaldos locales
+*.dump
+*.sql.bak
+
+# Archivos de sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.idea/
+.vscode/
