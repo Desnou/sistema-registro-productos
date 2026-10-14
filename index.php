@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <main class="tarjeta">
+        <h1>Formulario de Producto</h1>
+
+        <form id="formulario-producto" action="php/guardar_producto.php" method="post">
+            <div class="campos">
+
+                <div class="campo">
+                    <label for="codigo">Código</label>
+                    <input type="text" id="codigo" name="codigo" placeholder="PROD01K">
+                </div>
+
+                <div class="campo">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                </div>
+
+                <div class="campo">
+                    <label for="bodega">Bodega</label>
+                    <select id="bodega" name="bodega">
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+
+                <div class="campo oculto" id="contenedor-sucursal">
+                    <label for="sucursal">Sucursal</label>
+                    <select id="sucursal" name="sucursal">
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="moneda">Moneda</label>
+                    <select id="moneda" name="moneda">
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="precio">Precio</label>
+                    <input type="text" id="precio" name="precio" placeholder="1500">
+                </div>
+
+                <div class="campo campo-completo">
+                    <span class="etiqueta-grupo" id="etiqueta-materiales">Material del Producto</span>
+                    <div class="materiales" role="group" aria-labelledby="etiqueta-materiales">
+                        <label class="material"><input type="checkbox" name="materiales[]" value="1"> Plástico</label>
+                        <label class="material"><input type="checkbox" name="materiales[]" value="2"> Metal</label>
+                        <label class="material"><input type="checkbox" name="materiales[]" value="3"> Madera</label>
+                        <label class="material"><input type="checkbox" name="materiales[]" value="4"> Vidrio</label>
+                        <label class="material"><input type="checkbox" name="materiales[]" value="5"> Textil</label>
+                    </div>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
+                </div>
+
+                <div class="campo campo-completo">
+                    <button type="submit" class="boton-guardar">Guardar Producto</button>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+    <script src="js/validaciones.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
