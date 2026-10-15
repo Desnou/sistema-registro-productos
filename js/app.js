@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var campoNombre = document.getElementById('nombre');
     var campoBodega = document.getElementById('bodega');
     var campoSucursal = document.getElementById('sucursal');
-    var contenedorSucursal = document.getElementById('contenedor-sucursal');
     var campoMoneda = document.getElementById('moneda');
     var campoPrecio = document.getElementById('precio');
     var campoDescripcion = document.getElementById('descripcion');
@@ -83,8 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     throw new Error('Respuesta inválida');
                 }
                 poblarSelect(campoSucursal, datos, 'id_sucursal', 'Seleccione...');
+                campoSucursal.disabled = false;
             })
             .catch(function () {
+                campoSucursal.disabled = true;
                 alert('No fue posible cargar la lista de sucursales.');
             });
     }
@@ -94,13 +95,11 @@ document.addEventListener('DOMContentLoaded', function () {
     campoBodega.addEventListener('change', function () {
         var idBodega = campoBodega.value;
 
+        opcionEnBlanco(campoSucursal, 'Seleccione...');
+        campoSucursal.disabled = true;
+
         if (idBodega !== '') {
-            contenedorSucursal.classList.remove('oculto');
-            opcionEnBlanco(campoSucursal, 'Seleccione...');
             cargarSucursales(idBodega);
-        } else {
-            contenedorSucursal.classList.add('oculto');
-            opcionEnBlanco(campoSucursal, 'Seleccione...');
         }
     });
 
@@ -138,8 +137,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (respuesta.exito === true) {
                     formulario.reset();
-                    contenedorSucursal.classList.add('oculto');
                     opcionEnBlanco(campoSucursal, 'Seleccione...');
+                    campoSucursal.disabled = true;
                 }
             })
             .catch(function () {

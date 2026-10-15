@@ -3,7 +3,7 @@
    Funciones puras de validación para el formulario de productos.
    JavaScript nativo (sin frameworks).
    Cada función devuelve el mensaje de error exacto (string) o null
-   si el valor es válido. La secuencia de evaluación es:
+   si el valor es válido. La secuencia de validación es:
    vacío -> longitud -> expresión regular.
    ============================================================ */
 

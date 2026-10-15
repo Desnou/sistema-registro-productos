@@ -34,11 +34,8 @@ PASOS DE INSTALACIÓN
    psql -U postgres -d registro_productos -f sql/01_esquema.sql
    psql -U postgres -d registro_productos -f sql/02_datos_prueba.sql
 
-3. Configurar las credenciales de conexión en el archivo:
-
-   php/conexion.php
-
-   (usuario y contraseña de PostgreSQL; por defecto se usa el usuario "postgres").
+3. Configurar las credenciales de conexión a PostgreSQL:
+   Por defecto, php/conexion.php está configurado para usuario 'postgres' y clave vacía (''). Si tu PostgreSQL requiere otra clave, puedes editar directamente php/conexion.php o crear opcionalmente el archivo php/config.local.php con tu configuración.
 
 4. Levantar el servidor de desarrollo desde la raíz del proyecto:
 
@@ -46,18 +43,20 @@ PASOS DE INSTALACIÓN
 
 5. Abrir en el navegador:
 
-   http://localhost:8000/index.php
+   http://localhost:8000/index.html
 
 ESTRUCTURA DEL PROYECTO
 -----------------------
-index.php              Interfaz del formulario.
+index.html             Interfaz del formulario.
 css/estilos.css        Estilos.
 js/                    Validaciones, cargas dinámicas y envío AJAX.
 php/                   Conexión a base de datos y endpoints del servidor.
 sql/                   Esquema y datos iniciales de la base de datos.
-docs/                  Documentación de referencia.
 
 NOTAS
 -----
-- El archivo php/config.local.php (si se crea) se ignora en git y permite
-  configurar credenciales sin exponerlas en el repositorio.
+- No se requieren archivos de configuración adicionales: el proyecto funciona
+  con los valores por defecto de php/conexion.php (usuario 'postgres', clave
+  vacía). Solo si el entorno requiere credenciales distintas, editar
+  php/conexion.php o crear el archivo opcional php/config.local.php
+  (ignorado en git, para no exponer credenciales en el repositorio).

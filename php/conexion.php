@@ -2,8 +2,11 @@
 // ============================================================
 // conexion.php
 // Conexión PDO a PostgreSQL para el Sistema de Registro de Productos.
-// Configuración por defecto; puede sobrescribirse con credenciales
-// locales creando el archivo php/config.local.php (no versionado).
+// Por defecto se conecta con el usuario 'postgres' y clave vacía ('').
+// Si el entorno local requiere otra clave, hay dos opciones:
+// editar directamente los valores de $config, o crear (opcionalmente)
+// el archivo php/config.local.php con la configuración local
+// (no versionado, ver .gitignore).
 // ============================================================
 
 $config = [
