@@ -15,7 +15,7 @@ TECNOLOGÍAS
 
 VERSIONES UTILIZADAS
 --------------------
-- PHP: 8.3
+- PHP: 8.3.33
 - PostgreSQL: 18.2
 
 REQUISITOS PREVIOS
@@ -45,6 +45,26 @@ PASOS DE INSTALACIÓN
 
    http://localhost:8000/index.html
 
+DATOS INICIALES
+--------------
+Tras importar los scripts SQL, la base de datos contiene:
+- Bodegas: Bodega Central, Bodega Norte, Bodega Sur
+- Sucursales: Santiago Centro y Providencia (Bodega Central); Antofagasta e
+  Iquique (Bodega Norte); Concepción y Puerto Montt (Bodega Sur)
+- Monedas: PESO CHILENO (CLP), DÓLAR (USD), EURO (EUR)
+- Materiales: Plástico, Metal, Madera, Vidrio, Textil
+
+CÓMO PROBAR EL SISTEMA
+----------------------
+1. Abrir http://localhost:8000/index.html
+2. Verificar que los selects de Bodega y Moneda carguen opciones.
+3. Seleccionar una bodega y comprobar que el select de Sucursal se habilite
+   con sus opciones.
+4. Completar el formulario (ejemplo: código PROD01K, precio 1500) y presionar
+   "Guardar Producto": debe mostrarse "Producto guardado correctamente."
+5. Volver a enviar el mismo código: debe mostrarse
+   "El código del producto ya está registrado."
+
 ESTRUCTURA DEL PROYECTO
 -----------------------
 index.html             Interfaz del formulario.
@@ -52,6 +72,22 @@ css/estilos.css        Estilos.
 js/                    Validaciones, cargas dinámicas y envío AJAX.
 php/                   Conexión a base de datos y endpoints del servidor.
 sql/                   Esquema y datos iniciales de la base de datos.
+
+SOLUCIÓN DE PROBLEMAS
+---------------------
+- "Error de conexión con la base de datos": revisar usuario y clave en
+  php/conexion.php (ver paso 3).
+- Los selects aparecen vacíos: verificar que los scripts sql/01_esquema.sql
+  y sql/02_datos_prueba.sql se importaron en la base de datos correcta. Si se
+  necesitan reimportar, recrear la base de datos (los INSERT de semilla no
+  son idempotentes).
+- Error de extensiones: comprobar que pdo_pgsql está habilitado (php -m).
+
+NOTA PARA WINDOWS (PHP O PSQL FUERA DEL PATH)
+---------------------------------------------
+Si los comandos no se reconocen, usar rutas completas, por ejemplo:
+- PHP (XAMPP):   C:\xampp\php\php.exe -S localhost:8000
+- PostgreSQL 18: "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d registro_productos -f sql\01_esquema.sql
 
 NOTAS
 -----

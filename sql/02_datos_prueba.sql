@@ -6,18 +6,27 @@
 
 -- Bodegas
 INSERT INTO bodega (nombre) VALUES
-    ('Bodega 1'),
-    ('Bodega 2');
+    ('Bodega Central'),
+    ('Bodega Norte'),
+    ('Bodega Sur');
 
--- Sucursales (asociadas a cada bodega)
+-- Sucursales (vinculadas a cada bodega)
 INSERT INTO sucursal (id_bodega, nombre) VALUES
-    (1, 'Sucursal 1'),
-    (1, 'Sucursal 2'),
-    (2, 'Sucursal 3');
+    -- Bodega Central (id_bodega = 1)
+    (1, 'Sucursal Santiago Centro'),
+    (1, 'Sucursal Providencia'),
+    -- Bodega Norte (id_bodega = 2)
+    (2, 'Sucursal Antofagasta'),
+    (2, 'Sucursal Iquique'),
+    -- Bodega Sur (id_bodega = 3)
+    (3, 'Sucursal Concepción'),
+    (3, 'Sucursal Puerto Montt');
 
 -- Monedas
 INSERT INTO moneda (nombre) VALUES
-    ('DÓLAR');
+    ('PESO CHILENO (CLP)'),
+    ('DÓLAR (USD)'),
+    ('EURO (EUR)');
 
 -- Materiales del producto
 INSERT INTO material (nombre) VALUES
